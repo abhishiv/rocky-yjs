@@ -1,0 +1,46 @@
+{
+  "name": "rocky7-yjs",
+  "version": "0.2.4",
+  "author": "Abhishiv Saxena<abhishiv@gmail.com>",
+  "license": "MIT",
+  "description": "rocky7 two way integration with Yjs CRDT",
+  "keywords": [
+    "rocky7",
+    "yjs",
+    "crdt",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhishiv/rocky7-yjs"
+  },
+  "files": [
+    "./dist"
+  ],
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "vitest": "^0.28.5"
+  },
+  "scripts": {
+    "build": "npx tsc --resolveJsonModule -p ./tsconfig.json --outDir ./dist/esm && npx tsc --resolveJsonModule -p ./tsconfig.json --module commonjs --outDir ./dist/cjs",
+    "test": "npx vitest --run --passWithNoTests",
+    "coverage": "vitest run --coverage --run --passWithNoTests"
+  },
+  "main": "./src/index.tsx",
+  "exports": {
+    ".": {
+      "import": "./src/index.tsx",
+      "require": "./src/index.tsx"
+    },
+    "./example": {
+      "import": "./src/example.tsx",
+      "require": "./src/example.tsx"
+    }
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "rocky7": "*",
+    "yjs": "*"
+  }
+}
